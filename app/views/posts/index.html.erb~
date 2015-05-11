@@ -2,12 +2,12 @@
   <%= link_to('logout', destroy_user_session_path, :method => :delete) %> |
   <%= link_to('forget password', edit_registration_path(:user)) %>
 <% else %>
-  <%= link_to('sign up', new_registration_path(resource_name)) %> |
+  <%= link_to('sign up', new_registration_path(:user)) %> |
   <%= link_to('login', new_session_path(:user)) %>
 <% end %>
 </br>
 </br>
-
+<%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
 <%= link_to 'New Post', new_post_path %>
 </br>
 <% @posts.each do |post| %>
