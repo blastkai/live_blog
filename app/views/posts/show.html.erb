@@ -1,0 +1,31 @@
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%= button_to 'Delete', post_path(@post), :method => :destroy %>
+<%= @post.title %>
+<%= simple_format(@post.content) %>
+<%= @post.created_at %> </br>
+
+<h3>Comments</h3>
+
+<% @pastcomment.each do |pastcomment| %>
+    <li>
+    	<%= pastcomment.user.email %>   says
+    	<br>
+    	<%= pastcomment.comment_content %>
+    	<br>  
+    	<%= pastcomment.created_at %>
+    </li>
+    <br>
+<% end %>
+
+<%= form_tag({ controller: "comment", action: "createcomment" }, method:"post") do %>
+    <h4><%= label_tag(:comment_content, "New Comment") %><h4>
+    <%= text_area_tag("comment[comment_content]")%>
+
+
+    <%= hidden_field_tag("comment[post_id]", @post.id) %>
+
+    <%= submit_tag("Submit")%>
+<% end %>
+
+
+<p><%= link_to 'Back to index', :controller => 'posts', :action => 'index' %></p>
