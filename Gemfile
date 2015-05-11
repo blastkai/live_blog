@@ -32,13 +32,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# active admin
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
 
-#DB
+# Oauth
+gem 'omniauth-google-oauth2'
+
+# DB
 gem 'pg'
 gem 'rails_12factor', group: :production
 
