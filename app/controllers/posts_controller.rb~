@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   
   def index
-    @posts = Post.all
-current_user.update_attribute :admin, true
+    @posts = Post.includes(:user).page params[:page]
+
   end
   
   def new
@@ -18,8 +18,8 @@ current_user.update_attribute :admin, true
   
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new
-    @pastcomment = Comment.includes(:user).where( post_id: params[:id])
+    @blogcomment = Blogcomment.new
+    @pastcomment = Blogcomment.includes(:user).where( post_id: params[:id])
 
   end
 
@@ -44,6 +44,6 @@ current_user.update_attribute :admin, true
   private
 
   def post_params
-    params.require(:post).permit(:title , :content)
+    params.require(:post).permit(:title , :content, :id)
   end
 end

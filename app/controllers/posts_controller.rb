@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   def index
-    @posts = Post.includes(:user).page params[:page]
+    @posts = Post.includes(:user).order('id DESC').page params[:page]
 
   end
   

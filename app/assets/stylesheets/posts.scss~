@@ -55,7 +55,3 @@ a:link{
 	padding-top:5%;
 	text-align: left;
 }
-
-nav{
-	font-size:15px;
-}
