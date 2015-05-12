@@ -23,7 +23,7 @@
     </div>
     <div class="controller_bar">
         <%= link_to 'Edit', edit_post_path(@post) %>
-        <%= button_to 'Delete post', post_path(@post), :method => :destroy %>
+        <%= button_to 'Delete', post_path(@post), :method => :delete  %>
     </div>
 <div class="blog_comment">
     <h3>Comments</h3>
