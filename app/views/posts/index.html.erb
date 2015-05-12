@@ -1,4 +1,5 @@
 <% if current_user %>
+  <%= link_to 'New Post', new_post_path %>
   <%= link_to('logout', destroy_user_session_path, :method => :delete) %> |
   <%= link_to('forget password', edit_registration_path(:user)) %>
 <% else %>
@@ -8,18 +9,24 @@
 </br>
 </br>
 
-<%= link_to 'New Post', new_post_path %>
+
 </br>
 <% @posts.each do |post| %>
   <li>
-    <%= post.title %> </br>
-    <%= post.content %> </br>
-    <%= post.created_at %> </br>
+    <h3><%= link_to post.title, post_path(post) %><h3>
+    <% if current_user %>
+      <% if current_user.id == post.user.id %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= button_to 'Delete', post_path(post), :method => :destroy %>
+      <% end %>
+    <%end %>
 
-    <%= link_to "Show", post_path(post) %>
-    <%= link_to 'Edit', edit_post_path(post) %>
-    <%= button_to 'Delete', post_path(post), :method => :destroy %>
+    <%= post.content %> </br>
+    by <%= post.user.email %> 
+    <%= post.created_at %> </br>
+    
   </li>
 <% end %>
 </ul>
+<%= paginate @posts %>
 

@@ -246,6 +246,7 @@ DEPENDENCIES
   inherited_resources
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   omniauth-google-oauth2
   pg
   pundit
