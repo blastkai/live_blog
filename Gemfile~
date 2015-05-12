@@ -39,6 +39,8 @@ gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
 
+gem 'kaminari'
+
 # 
 gem 'inherited_resources'
 
