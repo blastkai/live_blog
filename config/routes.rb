@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 =begin
 =end
   devise_config = ActiveAdmin::Devise.config
-  devise_config[:controllers][:omniauth_callbacks] = "omniauth_callbacks"
+  devise_config[:controllers][:omniauth_callbacks] = "users/omniauth_callbacks"
   devise_for :users, devise_config
   ActiveAdmin.routes(self)
   
