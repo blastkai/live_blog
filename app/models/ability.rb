@@ -6,8 +6,8 @@ class Ability
     if user.admin?
         can :manage, :all
     else
-      can :manage, User, :id => user.id
       can :read, ActiveAdmin::Page, :name => "Dashboard"
+      can :manage, User, :id => user.id
     end
     #can :manage, Post
     #can :read, User

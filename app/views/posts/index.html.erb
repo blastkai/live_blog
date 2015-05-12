@@ -1,32 +1,45 @@
-<% if current_user %>
-  <%= link_to 'New Post', new_post_path %>
-  <%= link_to('logout', destroy_user_session_path, :method => :delete) %> |
-  <%= link_to('forget password', edit_registration_path(:user)) %>
-<% else %>
-  <%= link_to('sign up', new_registration_path(:user)) %> |
-  <%= link_to('login', new_session_path(:user)) %>
-<% end %>
-</br>
-</br>
-
-
-</br>
-<% @posts.each do |post| %>
-  <li>
-    <h3><%= link_to post.title, post_path(post) %><h3>
+<div class="live_blog"> 
+  <div class="user_nav">
     <% if current_user %>
-      <% if current_user.id == post.user.id %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= button_to 'Delete', post_path(post), :method => :destroy %>
-      <% end %>
-    <%end %>
+      <%= link_to 'New Post', new_post_path %>
+      <%= link_to('logout', destroy_user_session_path, :method => :delete) %> |
+      <%= link_to('forget password', edit_registration_path(:user)) %>
+    <% else %>
+      <%= link_to('sign up', new_registration_path(:user)) %> |
+      <%= link_to('login', new_session_path(:user)) %>
+    <% end %>
+    </br>
+  </div>
+  <div>
+    </br>
+    <h3>
+    <% @posts.each do |post| %>
+      
+        <div class="blog_div">
+          <div class="blog_title"><%= link_to post.title, post_path(post) %></div>
+          <% if current_user %>
+            <% if current_user.id == post.user.id %>
+            <br>
+              <div class="controller_bar">
+                <%= link_to 'Edit', edit_post_path(post) %>
+                <%= button_to 'Delete', post_path(post), :method => :destroy %>
+             </div>
+            <% end %>
+          <%end %>
 
-    <%= post.content %> </br>
-    by <%= post.user.email %> 
-    <%= post.created_at %> </br>
-    
-  </li>
-<% end %>
-</ul>
-<%= paginate @posts %>
-
+          <div class="blog_content">
+            <%= post.content %>
+          </div>
+          
+          <div class="blog_info">
+            by <%= post.user.email %>  posted at
+            <%= post.created_at %> 
+          </div>
+        </div>
+      
+    <% end %>
+    </h3>
+    </ul>
+    <%= paginate @posts %>
+  </div>
+</div>

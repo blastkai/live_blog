@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   def access_denied(exception)
-    redirect_to root_url, :alert => exception.message
+    redirect_to admin_organizations_path, :alert => exception.message
   end
   # for Oauth2
   before_action :initialize_omniauth_state
@@ -13,4 +13,6 @@ class ApplicationController < ActionController::Base
   def initialize_omniauth_state
     session['omniauth.state'] = response.headers['X-CSRF-Token'] = form_authenticity_token
   end
+  
+
 end

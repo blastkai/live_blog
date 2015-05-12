@@ -1,32 +1,55 @@
-<%= link_to 'Edit', edit_post_path(@post) %>
-<%= button_to 'Delete', post_path(@post), :method => :destroy %>
-<%= @post.title %>
-<%= simple_format(@post.content) %>
-<%= @post.created_at %> </br>
+<div class="live_blog"> 
+  <div class="user_nav">
+    <% if current_user %>
+      <%= link_to 'New Post', new_post_path %>
+      <%= link_to('logout', destroy_user_session_path, :method => :delete) %> |
+      <%= link_to('forget password', edit_registration_path(:user)) %>
+    <% else %>
+      <%= link_to('sign up', new_registration_path(:user)) %> |
+      <%= link_to('login', new_session_path(:user)) %>
+    <% end %>
+    </br>
+  </div>
+    
+ <p><%= link_to 'Back to index', :controller => 'posts', :action => 'index' %></p>
+    <div class="blog_title">
+        <%= @post.title %>
+    </div>
+    <div class="blog_content">
+        <%= simple_format(@post.content) %>
+    </div>
+    <div class="blog_info">
+        posted at <%= @post.created_at %> </br>
+    </div>
+    <div class="controller_bar">
+        <%= link_to 'Edit', edit_post_path(@post) %>
+        <%= button_to 'Delete post', post_path(@post), :method => :destroy %>
+    </div>
+<div class="blog_comment">
+    <h3>Comments</h3>
 
-<h3>Comments</h3>
+    <% @pastcomment.each do |pastcomment| %>
+        <li>
+        	<%= pastcomment.user.email %>   says
+        	<br>
+        	<%= pastcomment.comment_content %>
+        	<br>  
+        	<%= pastcomment.created_at %>
+        </li>
+        <br>
+    <% end %>
 
-<% @pastcomment.each do |pastcomment| %>
-    <li>
-    	<%= pastcomment.user.email %>   says
-    	<br>
-    	<%= pastcomment.comment_content %>
-    	<br>  
-    	<%= pastcomment.created_at %>
-    </li>
-    <br>
-<% end %>
-
-<%= form_tag({ controller: "blogcomments", action: "createcomment" }, method:"post") do %>
-    <h4><%= label_tag(:blogcomment_content, "New Comment") %></h4>
-    <%= text_area_tag("blogcomment[comment_content]")%>
+    <%= form_tag({ controller: "blogcomments", action: "createcomment" }, method:"post") do %>
+        <h4><%= label_tag(:blogcomment_content, "New Comment") %></h4>
+        <%= text_area_tag("blogcomment[comment_content]")%>
 
 
-    <%= hidden_field_tag("blogcomment[post_id]", @post.id) %>
+        <%= hidden_field_tag("blogcomment[post_id]", @post.id) %>
 
-    <%= submit_tag("Submit")%>
-<% end %>
+        <%= submit_tag("Submit")%>
+    <% end %>
 
 
-<p><%= link_to 'Back to index', :controller => 'posts', :action => 'index' %></p>
-
+    <p><%= link_to 'Back to index', :controller => 'posts', :action => 'index' %></p>
+  </div>
+</div>

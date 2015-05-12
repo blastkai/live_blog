@@ -1,9 +1,14 @@
-<%= form_for @post, :url => { :controller => 'posts', :action => 'update', :id => @post } do |p| %>
-    <%= p.label :title, "title" %>
-    <%= p.text_field :title %>
-
-    <%= p.label :content, "content" %>
-    <%= p.text_area :content %>
-
-    <%= p.submit "Update" %>
-<% end %>
+<div class="live_blog_edit">
+<p><%= link_to 'Back to index', :controller => 'posts', :action => 'index' %></p>
+	<%= form_for @post, :url => { :controller => 'posts', :action => 'update', :id => @post } do |p| %>
+	    <h3><%= p.label :title, "title" %></h3>
+	    <div class="blog_title">
+	    	<%= p.text_field :title %>
+	    </div>
+	    <h3><%= p.label :content, "content" %></h3>
+	    <div class="blog_content">
+	    	<%= p.text_area :content %>
+		</div>
+	    <%= p.submit "Update" %>
+	<% end %>
+</div>
