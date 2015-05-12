@@ -39,6 +39,9 @@ gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
 
+# 
+gem 'inherited_resources'
+
 # Oauth
 gem 'omniauth-google-oauth2'
 

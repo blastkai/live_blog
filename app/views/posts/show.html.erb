@@ -17,7 +17,7 @@
     <br>
 <% end %>
 
-<%= form_tag({ controller: "comment", action: "createcomment" }, method:"post") do %>
+<%= form_tag({ controller: "comments", action: "createcomment" }, method:"post") do %>
     <h4><%= label_tag(:comment_content, "New Comment") %><h4>
     <%= text_area_tag("comment[comment_content]")%>
 

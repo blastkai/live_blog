@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
-  devise_config = ActiveAdmin::Devise.config
-  devise_config[:controllers][:omniauth_callbacks] = "omniauth_callbacks"
-  devise_for :users, devise_config
-  ActiveAdmin.routes(self)
+  
+  
   # devise_for :users, ActiveAdmin::Devise.config
   # devise_for :admin_users, ActiveAdmin::Devise.config
   
   resources :posts ,:comments
-  post "comments/createcomment" => "comments#createcomment"
-  root 'posts#index'
-
+  post 'comments/createcomment' => 'comments#createcomment'
+  root "posts#index"
+=begin
+=end
+  devise_config = ActiveAdmin::Devise.config
+  devise_config[:controllers][:omniauth_callbacks] = "omniauth_callbacks"
+  devise_for :users, devise_config
+ActiveAdmin.routes(self)
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

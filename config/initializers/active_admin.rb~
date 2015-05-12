@@ -6,24 +6,6 @@ ActiveAdmin.setup do |config|
   #
   config.site_title = "Blog"
 
-# For the entire application:
-ActiveAdmin.setup do |config|
-  config.comments = false
-end
-
-# For a namespace:
-ActiveAdmin.setup do |config|
-  config.namespace :admin do |admin|
-    admin.comments = false
-  end
-end
-
-# For a given resource:
-ActiveAdmin.register Post do
-  config.comments = false
-  
-end
-
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #

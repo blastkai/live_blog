@@ -243,6 +243,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   draper
+  inherited_resources
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-google-oauth2
