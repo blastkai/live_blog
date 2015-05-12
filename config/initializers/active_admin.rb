@@ -21,7 +21,7 @@ end
 # For a given resource:
 ActiveAdmin.register Post do
   config.comments = false
-  
+
 end
 
   # Set the link url for the title. For example, to take

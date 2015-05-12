@@ -1,4 +1,4 @@
-ActiveAdmin.register Post do
+ActiveAdmin.register Blogcomment do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -12,16 +12,6 @@ ActiveAdmin.register Post do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-=begin
 
-=end
-  permit_params :title, :content, :user_id
-  
-  actions :index, :show, :destroy, :create, :update, :edit
-
-
-
-
-
-
+ actions :index, :show, :destroy, :create, :update, :edit
 end

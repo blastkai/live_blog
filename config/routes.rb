@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   # devise_for :users, ActiveAdmin::Devise.config
   # devise_for :admin_users, ActiveAdmin::Devise.config
   
-  resources :posts ,:comments
-  post 'comments/createcomment' => 'comments#createcomment'
+  resources :posts ,:blogcomments
+  post 'blogcomments/createcomment' => 'blogcomments#createcomment'
   root "posts#index"
 =begin
 =end

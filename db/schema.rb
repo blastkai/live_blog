@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511164330) do
+ActiveRecord::Schema.define(version: 20150512062420) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20150511164330) do
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "blogcomments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.text     "comment_content"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "comments", force: :cascade do |t|

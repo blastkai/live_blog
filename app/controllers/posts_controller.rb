@@ -18,8 +18,8 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new
-    @pastcomment = Comment.includes(:user).where( post_id: params[:id])
+    @blogcomment = Blogcomment.new
+    @pastcomment = Blogcomment.includes(:user).where( post_id: params[:id])
 
   end
 

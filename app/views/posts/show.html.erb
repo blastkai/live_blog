@@ -17,12 +17,12 @@
     <br>
 <% end %>
 
-<%= form_tag({ controller: "comments", action: "createcomment" }, method:"post") do %>
-    <h4><%= label_tag(:comment_content, "New Comment") %><h4>
-    <%= text_area_tag("comment[comment_content]")%>
+<%= form_tag({ controller: "blogcomments", action: "createcomment" }, method:"post") do %>
+    <h4><%= label_tag(:blogcomment_content, "New Comment") %><h4>
+    <%= text_area_tag("blogcomment[comment_content]")%>
 
 
-    <%= hidden_field_tag("comment[post_id]", @post.id) %>
+    <%= hidden_field_tag("blogcomment[post_id]", @post.id) %>
 
     <%= submit_tag("Submit")%>
 <% end %>
